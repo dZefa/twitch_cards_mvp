@@ -1,0 +1,15 @@
+{
+  "name": "twitch_cards_mvp",
+  "version": "1.0.0",
+  "description": "Twitch Cards MVP",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Daniel M Chong",
+  "license": "ISC",
+  "homepage": "https://github.com/dZefa/twitch_cards_mvp#readme",
+  "devDependencies": {
+    "electron": "^1.7.10"
+  }
+}
