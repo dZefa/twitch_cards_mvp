@@ -2,10 +2,12 @@ const webpack = require('webpack');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const APP_DIR = path.resolve(__dirname, './client/index.jsx');
 const BUILD_DIR = path.resolve(__dirname, './dist');
 const TEMPLATE_DIR = path.resolve(__dirname, './client/template.index.html');
+const ENV_DIR = path.resolve(__dirname, './client/.env');
 
 const cleanOptions = {
   verbose: true,
@@ -40,6 +42,10 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: TEMPLATE_DIR,
       inject: 'body',
+    }),
+    new Dotenv({
+      path: ENV_DIR,
+      safe: false,
     })
   ]
 };
