@@ -2,6 +2,10 @@
 
 node_modules/
 
+# Build Files
+
+/dist
+
 # OPs
 
 package-lock.json
