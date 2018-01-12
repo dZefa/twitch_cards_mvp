@@ -11,10 +11,11 @@ const router = routerMiddleware(history);
 const enhancer = applyMiddleware(
   thunk,
   router,
+  logger()
 );
 
 function configureStore() {
-  return configureStore(Reducer, enhancer);
+  return createStore(Reducer, enhancer);
 };
 
 module.exports = { configureStore, history };
