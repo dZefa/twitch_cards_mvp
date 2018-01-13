@@ -14,6 +14,7 @@ const cleanOptions = {
 };
 
 module.exports = {
+  target: 'electron-main',
   entry: {
     app: APP_DIR,
   },
