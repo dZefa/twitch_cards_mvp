@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const axios = require('axios');
+const request = require('request');
 const session = require('express-session');
 const passport = require('passport');
 const passportOauth = require('passport-oauth');
@@ -40,13 +40,13 @@ OAuth2Strategy.prototype.userProfile = (accessToken, done) => {
     },
   };
 
-  axios(options)
-    .then(result => {
-      result.statusCode === 200 && done(null, JSON.parse(result.data));
-    })
-    .catch(err => {
-      done(JSON.parse(err));
-    });
+  request(options, (error, response, body) => {
+    if (response && response.statusCode === 200) {
+      done(null, JSON.parse(body));
+    } else {
+      done(JSON.parse(body));
+    }
+  });
 };
 
 passport.serializeUser((user, done) => {
@@ -80,13 +80,18 @@ passport.use('twitch',
 app.get('/auth/twitch', passport.authenticate('twitch', { scope: 'user_read' }));
 
 // Set route for OAuth redirect
-app.get('/auth/twitch/callback', passport.authenticate('twitch', { successRedirect: '/', failureRedirect: '/' }));
+app.get('/auth/twitch/callback', passport.authenticate('twitch', { successRedirect: '/auth/electron', failureRedirect: '/' }));
+
+// Set route to close Electron Login window
+app.get('/auth/electron', (req, res) => {
+  res.send('<script>window.close()</script>');
+});
 
 app.get('/', (req, res) => {
   if (req.session && req.session.passport && req.session.passport.user) {
     res.send({ result: req.session.passport.user });
   } else {
-    res.status(400).send({ error: 'User is not authorized' });
+    res.status(401).send({ error: 'User is not authorized' });
   }
 });
 
