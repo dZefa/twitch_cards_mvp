@@ -1,11 +1,14 @@
 const initialState = {
-  authorized: false,
-  displayName: null,
-  bio: null,
-  logo: null,
-  accessToken: null,
-  refreshToken: null,
-  error: null
+  authorized: null,
+  displayName: '',
+  email: '',
+  bio: '',
+  type: '',
+  partnered: null,
+  logo: '',
+  accessToken: '',
+  refreshToken: '',
+  error: ''
 };
 
 const authReducer = (state=initialState, action) => {
@@ -15,8 +18,11 @@ const authReducer = (state=initialState, action) => {
     case 'USER_LOGIN_SUCCESS': {
       return Object.assign({}, state, {
         authorized: true,
-        displayName: payload.display_name,
+        displayName: payload.displayName,
+        email: payload.email,
         bio: payload.bio,
+        type: payload.type,
+        partnered: payload.partnered,
         logo: payload.logo,
         accessToken: payload.accessToken,
         refreshToken: payload.refreshToken,
