@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import './homePage.css';
+
 import * as authActions from '../../action/authAction';
 
 class HomePage extends Component {
@@ -13,7 +15,7 @@ class HomePage extends Component {
     const { displayName, actions } = this.props;
     
     return (
-      <div>
+      <div id="home-page">
         Welcome back Coomahndah, {displayName}!
       </div>
     )
