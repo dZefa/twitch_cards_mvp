@@ -9,7 +9,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         {/* Navigation bar goes here */}
         <Routes />
       </div>
