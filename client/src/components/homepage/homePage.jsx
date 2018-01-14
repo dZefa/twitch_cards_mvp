@@ -15,7 +15,7 @@ class HomePage extends Component {
     const { displayName, actions } = this.props;
     
     return (
-      <div id="home-page">
+      <div id="home-page" className="norm-height">
         Welcome back Coomahndah, {displayName}!
       </div>
     )
