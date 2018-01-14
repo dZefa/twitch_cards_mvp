@@ -5,6 +5,7 @@ body {
   color: white;
   height: 100vh;
   overflow: hidden;
+  font-family: 'Raleway';
 }
 
 #root {
