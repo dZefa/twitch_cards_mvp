@@ -9,7 +9,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="fill-height" id="app">
         {/* Navigation bar goes here */}
         <Routes />
       </div>
