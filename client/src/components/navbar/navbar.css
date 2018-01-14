@@ -1,3 +1,16 @@
 #navbar-page {
   color: black;
+  border-bottom: 1px solid black;
+  padding: 5px 5px;
+}
+
+#navbar-page h3 {
+  font-weight: bold;
+  padding-left: 15px;
+  margin-bottom: 0;
+}
+
+#nav-row-right {
+  padding-right: 15px;
+  text-align: right;
 }
