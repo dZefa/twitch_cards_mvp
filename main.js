@@ -36,6 +36,10 @@ app.on('ready', () => {
     mainWindow.close();
   });
 
+  ipcMain.on('minimizeApp', (event, args) => {
+    mainWindow.minimize();
+  });
+
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
