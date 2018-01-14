@@ -36,7 +36,7 @@ const authReducer = (state=initialState, action) => {
       });
     }
     case 'PUSHED_TO_HOME': {
-      return Object.assign({
+      return Object.assign({}, state, {
         pushed: payload,
       });
     }
