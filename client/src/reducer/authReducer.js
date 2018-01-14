@@ -35,7 +35,7 @@ const authReducer = (state=initialState, action) => {
         error: payload.error,
       });
     }
-    case 'PUSHED_TO_HOME': {
+    case 'PUSHED_TO_MAIN': {
       return Object.assign({}, state, {
         pushed: payload,
       });
