@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import './navbar.css';
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div>
+      <div id="navbar-page" className="nav-height">
         navbar here!
       </div>
     )
