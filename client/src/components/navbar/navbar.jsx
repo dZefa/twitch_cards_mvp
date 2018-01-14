@@ -14,6 +14,10 @@ class Navbar extends Component {
     ipcRenderer.sendSync('closeApp');
   }
 
+  minimizeApp() {
+    ipcRenderer.sendSync('minimizeApp');
+  }
+
   render() {
     const { displayName } = this.props;
 
@@ -25,6 +29,9 @@ class Navbar extends Component {
           </div>
           <div className="col-10 fill-height">
             <div className="row justify-content-end align-items-start" id="nav-row-right">
+              <span onClick={() => this.minimizeApp()}>
+                <i className="fas fa-window-minimize"></i>
+              </span>
               <span onClick={() => this.closeApp()} >
                 <i className="fas fa-times" ></i>
               </span>
