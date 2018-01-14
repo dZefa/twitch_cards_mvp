@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from './components/homepage/homePage.jsx';
+import LandingPage from './components/landingPage/landingPage.jsx';
 
 class Routes extends Component {
   constructor() {
@@ -11,7 +12,8 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/" component={HomePage} />
+        <Route path="/home" component={HomePage} />
+        <Route path="/" component={LandingPage} />
       </Switch>
     )
   }
