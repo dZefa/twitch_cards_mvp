@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, net } = require('electron');
 
 app.on('ready', () => {
-  let mainWindow = new BrowserWindow({ width: 1280, height: 800 });
+  let mainWindow = new BrowserWindow({ width: 1280, height: 720 });
 
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
 
@@ -30,7 +30,10 @@ app.on('ready', () => {
         mainWindow.webContents.send('twitchAuth');
       });
     }
+  });
 
+  ipcMain.on('closeApp', (event, args) => {
+    mainWindow.close();
   });
 
   mainWindow.on('closed', () => {
