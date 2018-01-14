@@ -20,7 +20,7 @@ class Loading extends Component {
 
   render() {
     return (
-      <Loader type="spin" color="#444" />
+      <Loader type="spin" color="#444" height={100} width={100} className="spin-loader" />
     )
   }
 };
