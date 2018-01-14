@@ -15,3 +15,11 @@ body {
 .fill-height {
   height: 100%
 }
+
+.norm-height {
+  height: 85%;
+}
+
+.nav-height {
+  height: 15%;
+}
