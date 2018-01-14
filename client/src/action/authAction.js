@@ -1,21 +1,15 @@
 import axios from 'axios';
+import { push } from 'react-router-redux';
 
 const REST_SERVER = process.env.REST_SERVER;
 
-export const twitchLogin = () => (dispatch) => {
-  // axios.get(`${REST_SERVER}/auth/twitch`)
-  //   .then(res => {
-  //     console.log(`This is data from twitch: ${res.data}`);
-  //   })
-  //   .catch(err => {
-  //     console.log(`This is error from twitchLogin: ${err}`);
-  //   });
+export const loader = (path) => (dispatch) => {
+  dispatch(push(`/${path}`));
 };
 
 export const checkAuth = () => (dispatch) => {
   axios.get(`${REST_SERVER}/`)
     .then(({ data }) => {
-      console.log(`This is data from checkAuth: ${JSON.stringify(data)}`);
       const payload = {
         displayName: data.result.display_name,
         email: data.result.email,
