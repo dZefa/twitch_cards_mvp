@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import Navbar from './components/navbar/navbar.jsx';
 import Routes from './routes.jsx';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
+    const { authorized, pushed } = this.props;
+
     return (
       <div className="fill-height" id="app">
-        {/* Navigation bar goes here */}
+        {
+          authorized && pushed && <Navbar />
+        }
         <Routes />
       </div>
     )
   }
 };
 
-export default App;
+const AppState = (state) => {
+  return {
+    authorized: state.auth.authorized,
+    pushed: state.auth.pushed,
+  };
+};
+
+export default connect(AppState)(App);
