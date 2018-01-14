@@ -5,6 +5,7 @@ const REST_SERVER = process.env.REST_SERVER;
 
 export const loader = (path) => (dispatch) => {
   dispatch(push(`/${path}`));
+  dispatch({ type: 'PUSHED_TO_HOME', payload: true });
 };
 
 export const checkAuth = () => (dispatch) => {
