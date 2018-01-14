@@ -8,6 +8,7 @@ const initialState = {
   logo: '',
   accessToken: '',
   refreshToken: '',
+  pushed: false,
   error: ''
 };
 
@@ -32,6 +33,11 @@ const authReducer = (state=initialState, action) => {
       return Object.assign({
         authorized: false,
         error: payload.error,
+      });
+    }
+    case 'PUSHED_TO_HOME': {
+      return Object.assign({
+        pushed: payload,
       });
     }
     default:
