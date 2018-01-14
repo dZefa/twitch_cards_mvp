@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from './components/homepage/homePage.jsx';
+import MainView from './components/mainView/mainView.jsx';
 import LandingPage from './components/landingPage/landingPage.jsx';
 
 class Routes extends Component {
@@ -12,7 +12,7 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/home" component={HomePage} />
+        <Route exact path="/main" component={MainView} />
         <Route path="/" component={LandingPage} />
       </Switch>
     )

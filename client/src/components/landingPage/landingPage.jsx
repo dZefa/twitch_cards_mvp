@@ -32,7 +32,7 @@ class Landing extends Component {
           <div className="col align-self-center">
             { 
               authorized ? 
-              <Loading pathTo="home" /> :
+              <Loading pathTo="main" /> :
               <LandView />
             }
           </div>
