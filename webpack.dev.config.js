@@ -44,6 +44,10 @@ module.exports = {
       template: TEMPLATE_DIR,
       inject: 'body',
     }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
     new Dotenv({
       path: ENV_DIR,
       safe: false,
