@@ -15,7 +15,7 @@ class Loading extends Component {
 
     setTimeout(() => {
       actions.loader(pathTo);
-    }, 3000);
+    }, 2000);
   }
 
   render() {
