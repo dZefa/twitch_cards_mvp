@@ -85,7 +85,7 @@ passport.use('twitch',
 app.get('/auth/twitch', passport.authenticate('twitch', { scope: 'user_read' }));
 
 // Set route for OAuth redirect
-app.get('/auth/twitch/callback', passport.authenticate('twitch', { successRedirect: '/auth/electron', failureRedirect: '/' }));
+app.get('/auth/twitch/callback', passport.authenticate('twitch', { successRedirect: '/auth/electron', failureRedirect: '/auth/electron' }));
 
 // Set route to close Electron Login window
 app.get('/auth/electron', (req, res) => {
