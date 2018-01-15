@@ -12,7 +12,7 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/main" component={MainView} />
+        <Route path="/main" component={MainView} />
         <Route path="/" component={LandingPage} />
       </Switch>
     )
