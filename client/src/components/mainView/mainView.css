@@ -1,7 +1,10 @@
 #main-view {
-  width: 100%;
+  max-width: 100%;
 }
 
 #main-routes {
-  width: 80%;
+  max-width: 80%;
+  margin-left: 20%;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
