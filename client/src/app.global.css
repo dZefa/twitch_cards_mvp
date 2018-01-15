@@ -22,5 +22,9 @@ body {
 }
 
 .nav-height {
-  height: 10%;
+  height: 7%;
+}
+
+.titlebar-height {
+  height: 3%;
 }
