@@ -2,9 +2,14 @@
   max-width: 100%;
 }
 
+#main-view .row {
+  height: 100%;
+}
+
 #main-routes {
   max-width: 80%;
   margin-left: 20%;
   overflow-x: hidden;
   padding-top: 20px;
+  height: 100%;
 }
