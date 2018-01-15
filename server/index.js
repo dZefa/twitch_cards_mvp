@@ -12,6 +12,10 @@ const dotenv = require('dotenv');
 // Initialize env variables
 dotenv.config({ path: path.resolve(__dirname, './.env') });
 
+// Initialize Database & Methods
+const db = require('./db');
+const { syncDB, addToDb } = require('./db/util');
+
 // Define constants
 const OAuth2Strategy = passportOauth.OAuth2Strategy;
 const PORT = process.env.PORT;
@@ -71,6 +75,7 @@ passport.use('twitch',
     profile.refreshToken = refreshToken;
 
     // Store user profile in db
+    addToDb(profile);
 
     done(null, profile);
   }
@@ -97,4 +102,12 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
+  db.authenticate()
+    .then(() => {
+      console.log(`Connected to database`);
+      syncDB();
+    })
+    .catch((err) => {
+      console.log(`Error connecting to database. Error: ${err}`);
+    });
 });
