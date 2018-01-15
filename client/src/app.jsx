@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Titlebar from './components/titlebar/titlebar.jsx';
 import Navbar from './components/navbar/navbar.jsx';
 import Routes from './routes.jsx';
 
@@ -15,6 +16,7 @@ class App extends Component {
 
     return (
       <div className="fill-height" id="app">
+        <Titlebar />
         {
           authorized && pushed && <Navbar />
         }
