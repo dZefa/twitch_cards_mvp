@@ -1,9 +1,16 @@
 const { app, BrowserWindow, ipcMain, net } = require('electron');
 
-app.on('ready', () => {
-  let mainWindow = new BrowserWindow({ width: 1280, height: 720 });
+let mainWindow, twitchLogin;
 
-  mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
+app.on('ready', () => {
+  const loadurl = `file://${__dirname}/dist/index.html`;
+  mainWindow = new BrowserWindow({ width: 1280, height: 720, backgroundColor: 'white', show: false, resizable: false, frame: false });
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  });
+
+  mainWindow.loadURL(loadurl);
 
   mainWindow.webContents.openDevTools();
 
@@ -19,9 +26,13 @@ app.on('ready', () => {
     event.preventDefault();
 
     if (url === 'http://localhost:3000/auth/twitch') {
-      let twitchLogin = new BrowserWindow();
+      twitchLogin = new BrowserWindow({ parent: mainWindow, modal: true, width: 360, height: 520, show: false, frame: false, resizable: false });
   
       twitchLogin.loadURL(url);
+
+      twitchLogin.once('ready-to-show', () => {
+        twitchLogin.show();
+      })
       
       event.newGuest = twitchLogin;
   
@@ -36,11 +47,11 @@ app.on('ready', () => {
     mainWindow.close();
   });
 
-  ipcMain.on('minimizeApp', (event, args) => {
-    mainWindow.minimize();
-  });
-
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  mainWindow.on('restore', () => {
+    mainWindow.show();
   });
 });
