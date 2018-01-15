@@ -33,7 +33,7 @@ class Landing extends Component {
             { 
               authorized ? 
               <Loading pathTo="main" /> :
-              <LandView />
+              <LandView authorized={authorized} />
             }
           </div>
         </div>
