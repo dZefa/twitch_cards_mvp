@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import './mainView.css';
+
 import * as authActions from '../../action/authAction';
 
 import SideNav from '../sidenav/sideNav.jsx';
@@ -16,9 +18,13 @@ class MainView extends Component {
     const {} = this.props;
 
     return (
-      <div>
-        <SideNav />
-        <Routes />
+      <div id="main-view" className="norm-height">
+        <div className="row">
+          <SideNav />
+          <div className="col" id="main-routes">
+            <Routes />
+          </div>
+        </div>
       </div>
     )
   }
