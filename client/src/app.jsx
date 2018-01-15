@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Navbar from './components/navbar/navbar.jsx';
 import Routes from './routes.jsx';
@@ -30,4 +31,4 @@ const AppState = (state) => {
   };
 };
 
-export default connect(AppState)(App);
+export default withRouter(connect(AppState)(App));
