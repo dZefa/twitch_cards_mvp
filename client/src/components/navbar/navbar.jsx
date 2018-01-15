@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ipcRenderer } from 'electron';
 
 import './navbar.css';
 
@@ -8,14 +7,6 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
 
-  }
-
-  closeApp() {
-    ipcRenderer.sendSync('closeApp');
-  }
-
-  minimizeApp() {
-    ipcRenderer.sendSync('minimizeApp');
   }
 
   render() {
@@ -26,16 +17,6 @@ class Navbar extends Component {
         <div className="row align-items-center fill-height">
           <div className="col" id="navbar-title">
             <h3>{displayName}</h3>
-          </div>
-          <div className="col fill-height">
-            <div className="row justify-content-end align-items-start" id="nav-row-right">
-              <span onClick={() => this.minimizeApp()}>
-                <i className="fas fa-window-minimize"></i>
-              </span>
-              <span onClick={() => this.closeApp()} >
-                <i className="fas fa-times" ></i>
-              </span>
-            </div>
           </div>
         </div>
       </div>
