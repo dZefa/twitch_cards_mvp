@@ -12,7 +12,7 @@ class MainViewRoutes extends Component {
   render() {
     return (
       <Switch>
-        <Route path='/main' component={HomePage} />
+        <Route exact path='/main' component={HomePage} />
       </Switch>
     )
   }
