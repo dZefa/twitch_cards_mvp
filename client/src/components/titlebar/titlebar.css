@@ -1,0 +1,19 @@
+#titlebar {
+  background-color: gray;
+  -webkit-app-region: drag;
+}
+
+#title-row-left {
+  padding-left: 20px;
+}
+
+#title-row-right {
+  padding-right: 30px;
+  text-align: right;
+  -webkit-app-region: no-drag;
+}
+
+#title-row-right span {
+  margin-left: 20px;
+  padding-bottom: 3px;
+}
