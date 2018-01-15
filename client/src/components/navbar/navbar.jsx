@@ -24,10 +24,10 @@ class Navbar extends Component {
     return (
       <div id="navbar-page" className="nav-height">
         <div className="row align-items-center fill-height">
-          <div className="col-2">
+          <div className="col" id="navbar-title">
             <h3>{displayName}</h3>
           </div>
-          <div className="col-10 fill-height">
+          <div className="col fill-height">
             <div className="row justify-content-end align-items-start" id="nav-row-right">
               <span onClick={() => this.minimizeApp()}>
                 <i className="fas fa-window-minimize"></i>
