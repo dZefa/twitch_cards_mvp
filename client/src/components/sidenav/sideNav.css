@@ -7,3 +7,9 @@
   overflow-x: hidden;
   padding-top: 20px;
 }
+
+#side-logo {
+  border-radius: 50%;
+  height: 100px;
+  margin-bottom: 20px;
+}
