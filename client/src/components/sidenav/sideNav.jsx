@@ -10,11 +10,12 @@ class SideNav extends Component {
   }
 
   render() {
-    const { actions } = this.props;
+    const { actions, logo } = this.props;
 
     return (
       <div className="col" id="side-nav">
         <div>
+          <img src={logo} id="side-logo" />
           <p><Link to='/main'>HOME</Link></p>
           <p><Link to='/main/acc'>ACCOUNT</Link></p>
         </div>
@@ -23,4 +24,10 @@ class SideNav extends Component {
   }
 };
 
-export default withRouter(connect()(SideNav));
+const SideState = (state) => {
+  return {
+    logo: state.auth.logo,
+  };
+};
+
+export default withRouter(connect(SideState)(SideNav));
