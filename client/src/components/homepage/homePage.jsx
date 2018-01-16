@@ -4,6 +4,9 @@ import { bindActionCreators } from 'redux';
 
 import './homePage.css';
 
+import HomeView from './homeView.jsx';
+import LiveFeed from './homeLiveFeed.jsx';
+
 import * as authActions from '../../action/authAction';
 
 class HomePage extends Component {
@@ -15,8 +18,9 @@ class HomePage extends Component {
     const { displayName, actions } = this.props;
     
     return (
-      <div id="home-page" className="norm-height">
-        Welcome back Coomahndah, {displayName}!
+      <div id="home-page" className="norm-height row justify-content-end">
+        <HomeView />
+        <LiveFeed />
       </div>
     )
   }
